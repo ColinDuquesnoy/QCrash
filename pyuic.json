@@ -1,0 +1,17 @@
+{
+    "files": [
+        [
+            "forms/*.ui",
+            "qcrash/_forms/"
+        ],
+        [
+            "forms/*.qrc",
+            "qcrash/_forms/"
+        ]
+    ],
+    "pyrcc": "pyrcc5",
+    "pyrcc_options": "",
+    "pyuic": "pyuic5",
+    "pyuic_options": "--from-imports",
+    "hooks": ["fix_qt_imports"]
+}
