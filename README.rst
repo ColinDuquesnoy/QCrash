@@ -62,5 +62,5 @@ Dependencies
 
 .. _keyring: https://pypi.python.org/pypi/keyring
 .. _githubpy: https://github.com/michaelliao/githubpy
-.. _examples:
-.. _API documentation:
+.. _examples: https://github.com/ColinDuquesnoy/QCrash/tree/master/examples
+.. _API documentation: http://qcrash.readthedocs.org/en/latest/index.html
