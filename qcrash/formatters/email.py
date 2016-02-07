@@ -12,6 +12,8 @@ BODY_ITEM_TEMPLATE = '''%(name)s
 
 '''
 
+NB_LINES_MAX = 50
+
 
 class EmailFormatter(BaseFormatter):
     """
@@ -48,6 +50,12 @@ class EmailFormatter(BaseFormatter):
         body = BODY_ITEM_TEMPLATE % {
             'name': name, 'value': description, 'delim': delim
         }
+        if traceback:
+            name = 'Traceback'
+            traceback = '\n'.join(traceback.splitlines()[-NB_LINES_MAX:])
+            body += BODY_ITEM_TEMPLATE % {
+                'name': name, 'value': traceback, 'delim': delim
+            }
         if sys_info:
             name = 'System information'
             body += BODY_ITEM_TEMPLATE % {
@@ -55,12 +63,8 @@ class EmailFormatter(BaseFormatter):
             }
         if log:
             name = 'Application log'
+            log = '\n'.join(log.splitlines()[-NB_LINES_MAX:])
             body += BODY_ITEM_TEMPLATE % {
                 'name': name, 'value': log, 'delim': delim
-            }
-        if traceback:
-            name = 'Traceback'
-            body += BODY_ITEM_TEMPLATE % {
-                'name': name, 'value': traceback, 'delim': delim
             }
         return body
