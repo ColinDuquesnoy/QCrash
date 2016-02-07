@@ -16,9 +16,12 @@ except (ImportError, RuntimeError):
         except (ImportError, RuntimeError):
             _logger.warning('failed to import PySide')
             _logger.critical('No Qt bindings found, aborting...')
-            QtCore = object
-            QtGui = object()
-            QtWidgets = object()
-
+            try:
+                from unittest.mock import MagicMock
+                QtCore = MagicMock()
+                QtGui = MagicMock()
+                QtWidgets = MagicMock()
+            except ImportError:
+                sys.exit(1)
 
 __all__ = ['QtCore', 'QtGui', 'QtWidgets']
