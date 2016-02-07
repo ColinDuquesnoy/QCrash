@@ -9,8 +9,10 @@ Features:
 ---------
 
 - multiple builtin backends for reporting bugs:
+
     - github_backend: let you create issues on github
     - email_backend: let you send an email with the crash report.
+
 - highly configurable, you can create your own backend, set your own formatter,...
 - a thread safe exception hook mechanism with a way to setup your own function
 
