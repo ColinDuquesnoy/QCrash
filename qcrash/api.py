@@ -63,7 +63,8 @@ def set_qsettings(qsettings):
 
 def show_report_dialog(window_title='Report an issue...',
                        window_icon=None, traceback=None, issue_title='',
-                       issue_description='', parent=None):
+                       issue_description='', parent=None,
+                       modal=None):
     """
     Show the issue report dialog manually.
 
@@ -82,7 +83,11 @@ def show_report_dialog(window_title='Report an issue...',
                     window_icon=window_icon, traceback=traceback,
                     issue_title=issue_title,
                     issue_description=issue_description, parent=parent)
-    dlg.exec_()
+    if modal:
+        dlg.show()
+        return dlg
+    else:
+        dlg.exec_()
 
 
 def _return_empty_string():

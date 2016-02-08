@@ -1,11 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
-Setup script for OpenCobolIDE
-
-You will need to install PyQt4 (or PyQt5) and GnuCOBOL on your own.
-
+Setup script for QCrash
 """
+import sys
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
 from qcrash import __version__
 
 try:
@@ -14,6 +13,27 @@ try:
 except ImportError:
     build_ui = None
     cmdclass = {}
+
+
+class PyTest(TestCommand, object):
+    user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
+
+    def initialize_options(self):
+        super(PyTest, self).initialize_options()
+        self.pytest_args = []
+
+    def finalize_options(self):
+        super(PyTest, self).finalize_options()
+
+    def run_tests(self):
+        # import here, cause outside the eggs aren't loaded
+        import pytest
+        errno = pytest.main(self.pytest_args)
+        sys.exit(errno)
+
+
+cmdclass['test'] = PyTest
+
 
 # Get long description
 with open('README.rst', 'r') as readme:
@@ -33,6 +53,7 @@ setup(
     packages=find_packages(),
     cmdclass=cmdclass,
     install_requires=['keyring'],
+    tests_require=['pytest', 'pytest-qt', 'pytest-cov'],
     entry_points={
         'pyqt_distutils_hooks': [
             'fix_qt_imports = qcrash._hooks:fix_qt_imports']
