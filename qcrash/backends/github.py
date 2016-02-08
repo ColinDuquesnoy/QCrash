@@ -47,6 +47,7 @@ class GithubBackend(BaseBackend):
         self.button_icon = QtGui.QIcon(icon)
         self.gh_owner = gh_owner
         self.gh_repo = gh_repo
+        self._show_msgbox = True  # False when running the test suite
 
     def send_report(self, title, body):
         _logger().debug('sending bug report on github\ntitle=%s\nbody=%s',
@@ -55,6 +56,7 @@ class GithubBackend(BaseBackend):
         if not username or not password:
             return False
         _logger().debug('got user credentials')
+        print(username, password)
         try:
             gh = github.GitHub(username=username, password=password)
             repo = gh.repos(self.gh_owner)(self.gh_repo)
@@ -65,22 +67,26 @@ class GithubBackend(BaseBackend):
             # invalid credentials
             if e.response.code == 401:
                 self.qsettings().setValue('github/remember_credentials', 0)
-                QtWidgets.QMessageBox.warning(
-                    QtWidgets.qApp.activeWindow(), 'Invalid credentials',
-                    'Failed to create github issue, invalid credentials...')
+                if self._show_msgbox:
+                    QtWidgets.QMessageBox.warning(
+                      QtWidgets.qApp.activeWindow(), 'Invalid credentials',
+                      'Failed to create github issue, invalid credentials...')
             else:
                 # other issue
-                QtWidgets.QMessageBox.warning(
-                    QtWidgets.qApp.activeWindow(), 'Failed to create issue',
-                    'Failed to create github issue. Error %d' %
-                    e.response.code)
+                if self._show_msgbox:
+                    QtWidgets.QMessageBox.warning(
+                        QtWidgets.qApp.activeWindow(),
+                        'Failed to create issue',
+                        'Failed to create github issue. Error %d' %
+                        e.response.code)
             return False
         else:
             issue_nbr = ret['number']
-            ret = QtWidgets.QMessageBox.question(
-                QtWidgets.qApp.activeWindow(), 'Issue created on github',
-                'Issue successfully created. Would you like to open the ticket'
-                ' in your web browser?')
+            if self._show_msgbox:
+                ret = QtWidgets.QMessageBox.question(
+                    QtWidgets.qApp.activeWindow(), 'Issue created on github',
+                    'Issue successfully created. Would you like to open the '
+                    'ticket in your web browser?')
             if ret in [QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.Ok]:
                 webbrowser.open(
                     'https://github.com/%s/%s/issues/%d' % (

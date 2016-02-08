@@ -1,0 +1,50 @@
+[run]
+source = qcrash
+omit =
+    # qt design ui files
+    *_ui.py
+    *_rc.py
+    qcrash/_extlibs/*
+    # tested implicitely, should not be covered
+    qcrash/qt.py
+    qcrash/_hooks.py
+    tests/*
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Don't complain about missing debug-only code:
+    __debug__
+    def __repr__
+
+    # Don't complain if tests don't hit defensive assertion code:
+    raise AssertionError
+    raise NotImplementedError
+    except PermissionError
+
+    # Don't complain if non-runnable code isn't run:
+    if 0:
+    if False:
+    if __name__ == .__main__.:
+    pass
+    exec()_
+    QtWidgets.QMessageBox
+
+    def main\(.*:
+
+    # Don't complain if non importable code is not run
+    except ImportError
+    except ClassNotFound
+
+    # Don't complain if platform specific code isn't run
+    .*if sys.platform.*:
+    .*if.*platform.*:
+    .*if WINDOWS:
+    .*if DARWIN:
+    .*if LINUX:
+    if QtGui.QIcon.hasThemeIcon\(.*\):
+    if theme == '':
+
+    # Don't complain about _logger function not being called
+    logging.getLogger
+    _logger

@@ -1,6 +1,16 @@
 QCrash
 ------
 
+.. image:: https://coveralls.io/repos/github/ColinDuquesnoy/QCrash/badge.svg?branch=tests :target: https://coveralls.io/github/ColinDuquesnoy/QCrash?master
+  :target: https://coveralls.io/github/ColinDuquesnoy/QCrash?branch=master
+  :alt: API Coverage
+
+
+.. image:: https://travis-ci.org/ColinDuquesnoy/QCrash.svg?branch=master
+   :target: https://travis-ci.org/ColinDuquesnoy/QCrash
+   :alt: Travis-CI Build Status
+
+
 A PyQt/PySide framework for reporting application crash (unhandled exception)
 and/or let the user report an issue/feature request.
 
