@@ -3,14 +3,13 @@ import sys
 
 from PyQt5 import QtCore, QtWidgets
 
-logging.basicConfig()
-
 import qcrash.api as qcrash
 
 
+logging.basicConfig()
 
 GITHUB_OWNER = 'ColinDuquesnoy'
-GITHUB_REPO = 'TestBugReport'
+GITHUB_REPO = 'QCrash-Test'
 EMAIL = 'colin.duquesnoy@gmail.com'
 
 

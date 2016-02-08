@@ -9,8 +9,8 @@ import qcrash.api as qcrash
 logging.basicConfig()
 
 GITHUB_OWNER = 'ColinDuquesnoy'
-GITHUB_REPO = 'TestBugReport'
-EMAIL = 'colin.duquesnoy@gmail.com'
+GITHUB_REPO = 'QCrash-Test'
+EMAIL = 'your.email@provider.com'
 
 
 def get_system_info():

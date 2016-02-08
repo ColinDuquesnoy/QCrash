@@ -1,8 +1,11 @@
 from qcrash.backends.email import EmailBackend
 
 
+EMAIL = 'your.email@provider.com'
+
+
 def get_backend():
-    return EmailBackend('colin.duquesnoy@gmail.com', 'TestQCrash')
+    return EmailBackend(EMAIL, 'TestQCrash')
 
 
 def test_send_report():

@@ -5,13 +5,13 @@ PASSWORD = 'TestQCrash1234'
 
 
 def get_backend():
-    b = api.backends.GithubBackend('ColinDuquesnoy', 'TestBugReport')
+    b = api.backends.GithubBackend('ColinDuquesnoy', 'QCrash-Test')
     b._show_msgbox = False
     return b
 
 
 def get_backend_bad_repo():
-    b = api.backends.GithubBackend('ColinDuquesnoy', 'TestBugReport222')
+    b = api.backends.GithubBackend('ColinDuquesnoy', 'QCrash-Test222')
     b._show_msgbox = False
     return b
 
