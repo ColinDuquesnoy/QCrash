@@ -56,7 +56,6 @@ class GithubBackend(BaseBackend):
         if not username or not password:
             return False
         _logger().debug('got user credentials')
-        print(username, password)
         try:
             gh = github.GitHub(username=username, password=password)
             repo = gh.repos(self.gh_owner)(self.gh_repo)

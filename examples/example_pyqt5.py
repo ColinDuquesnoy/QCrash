@@ -10,7 +10,7 @@ logging.basicConfig()
 
 GITHUB_OWNER = 'ColinDuquesnoy'
 GITHUB_REPO = 'QCrash-Test'
-EMAIL = 'colin.duquesnoy@gmail.com'
+EMAIL = 'your.email@provider.com'
 
 
 def get_system_info():
