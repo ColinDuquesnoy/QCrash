@@ -1,7 +1,7 @@
 QCrash
 ------
 
-.. image:: https://coveralls.io/repos/github/ColinDuquesnoy/QCrash/badge.svg?branch=tests :target: https://coveralls.io/github/ColinDuquesnoy/QCrash?master
+.. image:: https://coveralls.io/repos/github/ColinDuquesnoy/QCrash/badge.svg?branch=master 
   :target: https://coveralls.io/github/ColinDuquesnoy/QCrash?branch=master
   :alt: API Coverage
 
