@@ -29,7 +29,7 @@ install:
  - python scripts/install-qt.py
 
  # pytest
- - pip install --quiet pytest pytest-qt pytest-cov
+ - pip install --quiet pytest pytest-qt pytest-cov pytest-flake8
 
  # coveralls
  - pip install --quiet coveralls --use-wheel
