@@ -112,10 +112,11 @@ _qsettings = QtCore.QSettings('QCrash')
 
 __all__ = [
     'backends',
-    'get_application_log',
-    'get_system_information',
     'install_backend',
+    'get_backends',
     'install_except_hook',
     'set_qsettings',
     'show_report_dialog',
+    'get_application_log',
+    'get_system_information',
 ]
