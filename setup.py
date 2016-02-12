@@ -53,7 +53,7 @@ setup(
     packages=find_packages(),
     cmdclass=cmdclass,
     install_requires=['keyring'],
-    tests_require=['pytest', 'pytest-qt', 'pytest-cov'],
+    tests_require=['pytest', 'pytest-qt', 'pytest-cov', 'pytest-flake8'],
     entry_points={
         'pyqt_distutils_hooks': [
             'fix_qt_imports = qcrash._hooks:fix_qt_imports']
