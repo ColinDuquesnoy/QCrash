@@ -1,7 +1,7 @@
-QCrash
-------
+About
+-----
 
-.. image:: https://coveralls.io/repos/github/ColinDuquesnoy/QCrash/badge.svg?branch=master 
+.. image:: https://coveralls.io/repos/github/ColinDuquesnoy/QCrash/badge.svg?branch=master
   :target: https://coveralls.io/github/ColinDuquesnoy/QCrash?branch=master
   :alt: API Coverage
 
@@ -74,3 +74,11 @@ Dependencies
 .. _githubpy: https://github.com/michaelliao/githubpy
 .. _examples: https://github.com/ColinDuquesnoy/QCrash/tree/master/examples
 .. _API documentation: http://qcrash.readthedocs.org/en/latest/index.html
+
+
+Testing
+-------
+
+To run the tests, just run the following command::
+
+    python setup.py test

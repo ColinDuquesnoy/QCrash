@@ -1,16 +1,16 @@
-qcrash package
-==============
+API reference
+=============
 
-API
----
+qcrash.api
+----------
 
 .. automodule:: qcrash.api
     :members:
     :undoc-members:
     :show-inheritance:
 
-Backends
---------
+qcrash.backends
+---------------
 
 BaseBackend
 +++++++++++
@@ -37,8 +37,8 @@ GithubBackend
     :show-inheritance:
 
 
-Formatters
-----------
+qcrash.formatters
+-----------------
 
 BaseFormatter
 +++++++++++++

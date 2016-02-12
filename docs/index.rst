@@ -6,12 +6,19 @@
 Welcome to qcrash's documentation!
 ==================================
 
+A PyQt/PySide framework for reporting application crash (unhandled exception)
+and/or let the user report an issue/feature request.
+
 Contents:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
-   qcrash
+   intro
+   changelog
+   examples
+   api_ref
+   contributing
 
 
 Indices and tables
@@ -20,4 +27,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
