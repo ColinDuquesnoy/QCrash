@@ -27,7 +27,11 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditTitle"/>
+      <widget class="QLineEdit" name="lineEditTitle">
+       <property name="toolTip">
+        <string>Title of the issue</string>
+       </property>
+      </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
@@ -37,7 +41,31 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPlainTextEdit" name="plainTextEditDesc"/>
+      <widget class="QPlainTextEdit" name="plainTextEditDesc">
+       <property name="toolTip">
+        <string>Description of the issue (mandatory)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QCheckBox" name="cb_include_sys_info">
+       <property name="toolTip">
+        <string>Include system information</string>
+       </property>
+       <property name="text">
+        <string>Include system &amp;information</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QCheckBox" name="cb_include_application_log">
+       <property name="toolTip">
+        <string>Include application log</string>
+       </property>
+       <property name="text">
+        <string>Include application &amp;log</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
