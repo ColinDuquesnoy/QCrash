@@ -2,6 +2,7 @@ import logging
 
 from qcrash._forms import dlg_report_bug_ui
 from qcrash.qt import QtGui, QtWidgets
+from qcrash._dialogs.review import DlgReview
 
 
 _logger = logging.getLogger(__name__)
@@ -87,6 +88,11 @@ class DlgReport(QtWidgets.QDialog):
 
         body = backend.formatter.format_body(
             str(description), sys_info, log, self._traceback)
+
+        if backend.need_review:  # pragma: no cover
+            body = DlgReview.review(body, self)
+            if body is None:
+                return  # user cancelled the review dialog
 
         if backend.send_report(title, body):
             self.accept()
