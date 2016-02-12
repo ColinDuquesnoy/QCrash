@@ -34,3 +34,24 @@ Qt: 5.5.1'''
 
     assert MardownFormatter().format_body(
         description, sys_info, log, traceback) == expected
+
+
+def test_format_body_no_log_no_sys_info():
+    description = 'A description'
+    traceback = 'A traceback'
+    sys_info = None
+    log = None
+    expected = '''### Description
+
+%s
+
+### Traceback
+
+```
+%s
+```
+
+''' % (description, traceback)
+
+    assert MardownFormatter().format_body(
+        description, sys_info, log, traceback) == expected

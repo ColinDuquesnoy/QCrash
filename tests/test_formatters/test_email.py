@@ -45,3 +45,27 @@ Application log
 
     assert EmailFormatter(app_name=appname).format_body(
         description, sys_info, log, traceback) == expected
+
+
+def test_format_body_no_log_no_sys_info():
+    appname = 'TestQCrash'
+    description = 'A description'
+    traceback = 'A traceback'
+    sys_info = None
+    log = None
+    expected = '''Description
+----------------------------------------
+
+%s
+
+
+Traceback
+----------------------------------------
+
+%s
+
+
+''' % (description, traceback)
+
+    assert EmailFormatter(app_name=appname).format_body(
+        description, sys_info, log, traceback) == expected
