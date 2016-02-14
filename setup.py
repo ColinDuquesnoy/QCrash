@@ -67,8 +67,12 @@ setup(
         '(GPLv3+)',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX :: Linux',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
-        'Topic :: Text Editors :: Integrated Development Environments (IDE)']
+        'Programming Language :: Python :: 3.5',
+        'Topic :: Software Development :: Bug Tracking',
+        'Topic :: Software Development :: User Interfaces',
+        'Topic :: Software Development :: Widget Sets']
 )
