@@ -102,7 +102,7 @@ class GithubBackend(BaseBackend):
             # pyside returns QVariants
             remember, _ok = remember.toInt()
             username = username.toString()
-        return username, remember
+        return username, bool(remember)
 
     def _store_credentials(self, username, password, remember):
         self.qsettings().setValue('github/username', username)
