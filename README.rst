@@ -29,7 +29,7 @@ Features
 Screenshots
 -----------
 
-*Screenshots taken on KDE Plasam 5*
+*Screenshots taken on KDE Plasma 5*
 
 - Report dialog
 
