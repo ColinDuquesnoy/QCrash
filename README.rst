@@ -15,8 +15,8 @@ A PyQt/PySide framework for reporting application crash (unhandled exception)
 and/or let the user report an issue/feature request.
 
 
-Features:
----------
+Features
+--------
 
 - multiple builtin backends for reporting bugs:
 
@@ -25,6 +25,24 @@ Features:
 
 - highly configurable, you can create your own backend, set your own formatter,...
 - a thread safe exception hook mechanism with a way to setup your own function
+
+Screenshots
+-----------
+
+*Screenshots taken on KDE Plasam 5*
+
+- Report dialog
+
+.. image:: https://raw.githubusercontent.com/ColinDuquesnoy/QCrash/master/docs/_static/qcrash_report.png
+
+- Review report before submitting
+
+.. image:: https://raw.githubusercontent.com/ColinDuquesnoy/QCrash/master/docs/_static/qcrash_review.png
+
+- Github integration
+
+.. image:: https://github.com/ColinDuquesnoy/QCrash/blob/master/docs/_static/qcrash_github_login.png
+
 
 LICENSE
 -------
