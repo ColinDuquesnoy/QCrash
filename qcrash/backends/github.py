@@ -61,8 +61,8 @@ class GithubBackend(BaseBackend):
             repo = gh.repos(self.gh_owner)(self.gh_repo)
             ret = repo.issues.post(title=title, body=body)
         except github.ApiError as e:
-            _logger().exception('failed to send bug report on github. '
-                                'response=%r' % e.response)
+            _logger().warn('failed to send bug report on github. response=%r' %
+                           e.response)
             # invalid credentials
             if e.response.code == 401:
                 self.qsettings().setValue('github/remember_credentials', 0)
