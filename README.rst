@@ -1,6 +1,16 @@
 About
 -----
 
+.. image:: https://img.shields.io/pypi/v/qcrash.svg
+   :target: https://pypi.python.org/pypi/qcrash/
+   :alt: Latest PyPI version
+
+.. image:: https://img.shields.io/pypi/dm/qcrash.svg
+   :target: https://pypi.python.org/pypi/qcrash/
+   :alt: Number of PyPI downloads
+
+.. image:: https://img.shields.io/pypi/l/qcrash.svg
+
 .. image:: https://coveralls.io/repos/github/ColinDuquesnoy/QCrash/badge.svg?branch=master
   :target: https://coveralls.io/github/ColinDuquesnoy/QCrash?branch=master
   :alt: API Coverage
