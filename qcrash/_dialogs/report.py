@@ -90,8 +90,8 @@ class DlgReport(QtWidgets.QDialog):
             str(description), sys_info, self._traceback)
 
         if backend.need_review:  # pragma: no cover
-            body = DlgReview.review(body, self)
-            if body is None:
+            body, log = DlgReview.review(body, log, self)
+            if body is None and log is None:
                 return  # user cancelled the review dialog
 
         QtWidgets.qApp.setOverrideCursor(QtCore.Qt.WaitCursor)
