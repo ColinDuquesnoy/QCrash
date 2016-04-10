@@ -94,10 +94,5 @@ class DlgReport(QtWidgets.QDialog):
             if body is None and log is None:
                 return  # user cancelled the review dialog
 
-        QtWidgets.qApp.setOverrideCursor(QtCore.Qt.WaitCursor)
-
         if backend.send_report(title, body, log):
-            QtWidgets.qApp.restoreOverrideCursor()
             self.accept()
-        else:
-            QtWidgets.qApp.restoreOverrideCursor()

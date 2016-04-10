@@ -23,7 +23,7 @@ def get_wrong_user_credentials():
     Monkeypatch GithubBackend.get_user_credentials to force the case where
     invalid credentias were provided
     """
-    return 'invalid', 'invalid', False
+    return 'invalid', 'invalid', False, False
 
 
 def get_empty_user_credentials():
@@ -31,7 +31,7 @@ def get_empty_user_credentials():
     Monkeypatch GithubBackend.get_user_credentials to force the case where
     invalid credentias were provided
     """
-    return '', '', False
+    return '', '', False, False
 
 
 def get_fake_user_credentials():
@@ -39,7 +39,7 @@ def get_fake_user_credentials():
     Monkeypatch GithubBackend.get_user_credentials to force the case where
     invalid credentias were provided
     """
-    return USERNAME, PASSWORD, False
+    return USERNAME, PASSWORD, False, False
 
 
 def test_invalid_credentials():
@@ -75,16 +75,19 @@ def test_get_credentials_from_qsettings():
     qsettings.clear()
     api.set_qsettings(qsettings)
     b = get_backend()
-    username, remember = b._get_credentials_from_qsettings()
+    username, remember, remember_password = b._get_credentials_from_qsettings()
     assert username == ''
     assert remember is False
+    assert remember_password is False
 
     qsettings.setValue('github/username', 'toto')
     qsettings.setValue('github/remember_credentials', '1')
+    qsettings.setValue('github/remember_password', '1')
 
-    username, remember = b._get_credentials_from_qsettings()
+    username, remember, remember_password = b._get_credentials_from_qsettings()
     assert username == 'toto'
     assert remember is True
+    assert remember_password is True
 
 
 def test_store_user_credentials():
@@ -92,7 +95,8 @@ def test_store_user_credentials():
     qsettings.clear()
     api.set_qsettings(qsettings)
     b = get_backend()
-    b._store_credentials('user', 'toto', False)
-    username, remember = b._get_credentials_from_qsettings()
+    b._store_credentials('user', 'toto', True, False)
+    username, remember, remember_pasword = b._get_credentials_from_qsettings()
     assert username == 'user'
-    assert remember is False
+    assert remember is True
+    assert remember_pasword is False

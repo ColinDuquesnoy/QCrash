@@ -64,6 +64,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QCheckBox" name="cb_remember_password">
+     <property name="text">
+      <string>Remember password</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QPushButton" name="bt_sign_in">
      <property name="text">
       <string>Sign in</string>
@@ -75,5 +82,22 @@
  <resources>
   <include location="qcrash.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>cb_remember</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cb_remember_password</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
