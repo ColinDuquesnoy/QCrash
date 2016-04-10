@@ -16,7 +16,6 @@ def test_format_body():
     sys_info = '''OS: Linux
 Python: 3.4.1
 Qt: 5.5.1'''
-    log = 'blabla'
     expected = '''Description
 ----------------------------------------
 
@@ -35,16 +34,10 @@ System information
 %s
 
 
-Application log
-----------------------------------------
-
-%s
-
-
-''' % (description, traceback, sys_info, log)
+''' % (description, traceback, sys_info)
 
     assert EmailFormatter(app_name=appname).format_body(
-        description, sys_info, log, traceback) == expected
+        description, sys_info, traceback) == expected
 
 
 def test_format_body_no_log_no_sys_info():
@@ -52,7 +45,6 @@ def test_format_body_no_log_no_sys_info():
     description = 'A description'
     traceback = 'A traceback'
     sys_info = None
-    log = None
     expected = '''Description
 ----------------------------------------
 
@@ -68,4 +60,4 @@ Traceback
 ''' % (description, traceback)
 
     assert EmailFormatter(app_name=appname).format_body(
-        description, sys_info, log, traceback) == expected
+        description, sys_info, traceback) == expected

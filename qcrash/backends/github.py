@@ -49,13 +49,18 @@ class GithubBackend(BaseBackend):
         self.gh_repo = gh_repo
         self._show_msgbox = True  # False when running the test suite
 
-    def send_report(self, title, body):
+    def send_report(self, title, body, application_log=None):
         _logger().debug('sending bug report on github\ntitle=%s\nbody=%s',
                         title, body)
         username, password, remember = self.get_user_credentials()
         if not username or not password:
             return False
         _logger().debug('got user credentials')
+
+        # upload log file as a gist
+        if application_log:
+            url = self.upload_log_file(application_log)
+            body += '\nApplication log: %s' % url
         try:
             gh = github.GitHub(username=username, password=password)
             repo = gh.repos(self.gh_owner)(self.gh_repo)
@@ -138,3 +143,15 @@ class GithubBackend(BaseBackend):
             self._store_credentials(username, password, remember)
 
         return username, password, remember
+
+    def upload_log_file(self, log_content):
+        gh = github.GitHub()
+        try:
+            ret = gh.gists.post(
+                description="OpenCobolIDE log", public=True,
+                files={'OpenCobolIDE.log': {"content": log_content}})
+        except github.ApiError:
+            _logger().warn('failed to upload log report as a gist')
+            return '"failed to upload log file as a gist"'
+        else:
+            return ret['html_url']
