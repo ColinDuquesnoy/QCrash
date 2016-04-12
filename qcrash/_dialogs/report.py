@@ -75,6 +75,7 @@ class DlgReport(QtWidgets.QDialog):
         bt = self.sender()
         description = self.ui.plainTextEditDesc.toPlainText()
         backend = bt.backend
+        backend.parent_widget = self
         title = backend.formatter.format_title(
             str(self.ui.lineEditTitle.text()))
 
