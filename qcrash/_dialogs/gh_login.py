@@ -36,7 +36,7 @@ class DlgGitHubLogin(QtWidgets.QDialog):
             self.ui.le_password.setFocus()
         else:
             self.ui.le_username.setFocus()
-        self.adjustSize()
+        self.setFixedSize(self.width(), self.height())
 
     def update_btn_state(self):
         enable = str(self.ui.le_username.text()).strip() != ''
