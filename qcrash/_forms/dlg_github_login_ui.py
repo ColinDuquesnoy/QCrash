@@ -11,7 +11,8 @@ from qcrash.qt import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 248)
+        Dialog.resize(366, 248)
+        Dialog.setMinimumSize(QtCore.QSize(350, 0))
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.lbl_html = QtWidgets.QLabel(Dialog)
