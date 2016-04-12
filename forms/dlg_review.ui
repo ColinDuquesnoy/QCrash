@@ -37,7 +37,7 @@ border-radius:3px;</string>
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -45,7 +45,11 @@ border-radius:3px;</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <widget class="QPlainTextEdit" name="edit_main"/>
+        <widget class="QPlainTextEdit" name="edit_main">
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -55,7 +59,11 @@ border-radius:3px;</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <widget class="QPlainTextEdit" name="edit_log"/>
+        <widget class="QPlainTextEdit" name="edit_log">
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

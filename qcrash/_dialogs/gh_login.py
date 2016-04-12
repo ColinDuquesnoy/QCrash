@@ -38,6 +38,17 @@ class DlgGitHubLogin(QtWidgets.QDialog):
             self.ui.le_username.setFocus()
         self.adjustSize()
         self.setFixedSize(self.width(), self.height())
+        self.ui.le_password.installEventFilter(self)
+        self.ui.le_username.installEventFilter(self)
+
+    def eventFilter(self, obj, event):
+        interesting_objects = [self.ui.le_password, self.ui.le_username]
+        if obj in interesting_objects and event.type() == QtCore.QEvent.KeyPress:
+            if event.key() == QtCore.Qt.Key_Return and event.modifiers() & QtCore.Qt.ControlModifier and \
+                    self.ui.bt_sign_in.isEnabled():
+                self.accept()
+                return True
+        return False
 
     def update_btn_state(self):
         enable = str(self.ui.le_username.text()).strip() != ''
