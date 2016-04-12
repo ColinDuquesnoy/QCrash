@@ -38,7 +38,6 @@ class DlgReview(QtWidgets.QDialog):
         :returns: the reviewed report content or None if the review was
                   canceled.
         """
-        print('review icon', window_icon)
         dlg = DlgReview(content, log, parent, window_icon)
         if dlg.exec_():
             return dlg.ui.edit_main.toPlainText(), \
